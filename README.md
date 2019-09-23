@@ -3,8 +3,7 @@
 Search Github Repositories by keyword.
 Utilized Redux, Axios.
 
-
-
+![](reduxapp.PNG)
 
 ## Redux Counter
 
