@@ -36,7 +36,13 @@ function reducer(state = initialState, action){
         items: state.items.concat(state.inputText),
         inputText: ''
       }
-
+    case 'DELETE_ITEM':
+      const copy = state.items.slice();
+      copy.splice(action.index, 1)
+      return {
+        ...state,
+        items: copy
+      }
     default:
       return state;
   }

@@ -17,7 +17,7 @@ function Counter(props){
           <input value={props.inputText} onChange={props.onInputTextChange}/>
             <ul>
               {props.items.map( (item, index)=> {
-                return <li key={index}>{item}</li>
+                return <li key={index} onClick={()=>props.itemDelete(index)}>{item}</li>
               })}
             </ul>
           </form>
@@ -58,6 +58,10 @@ function mapDispatchToProps(dispatch){
     onSubmit: (evt) => {
       evt.preventDefault(); //! 없으면 페이지가 스스로 새로고침됨
       const action = { type: 'ADD_ITEM'};
+      dispatch(action);
+    },
+    itemDelete: (index) => {
+      const action = { type: 'DELETE_ITEM', index: index};
       dispatch(action);
     }
   }
