@@ -7,7 +7,8 @@ const initialState = {
   inputText: '',
   items: [],
   repos: [],
-  searchInputVal: ''
+  searchInputVal: '',
+  listCount: 0
 }
 
 function reducer(state = initialState, action){
@@ -34,6 +35,7 @@ function reducer(state = initialState, action){
         inputText: action.text
     }
     case constants.ADD_ITEM:
+      console.log('add, ', state)
       return {
         ...state,
         items: state.items.concat(state.inputText),
