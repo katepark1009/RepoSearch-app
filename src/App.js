@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Counter from './Counter';
 import store from './store';
 import { Provider } from 'react-redux'
@@ -7,7 +6,7 @@ import { Provider } from 'react-redux'
 const getStore = store.getState();
 console.log('store: ', getStore);
 
-function App() {
+function reduxApp() {
   return (
     <div className="App">
       <Provider store={store}>
@@ -17,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default reduxApp;

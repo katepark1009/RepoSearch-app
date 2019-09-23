@@ -16,12 +16,14 @@ function Counter(props){
           return <li key={repo.id}><a href={repo.html_url}>{repo.name}</a></li>
         })}
       </ul>
+
       <h1>Counter</h1>
       <p>Count: {props.count || 0}</p>
       <button onClick={props.onIncrementClick}>increment</button><br/>
       <button onClick={props.onDecrementClick}>decrement</button><br/>
       <input value={props.inputVal} onChange={props.onInputChange} />
       <p>{props.inputVal}</p>
+      
       <div>
         <h1>Lister</h1>
         <form onSubmit={props.onSubmit}>
