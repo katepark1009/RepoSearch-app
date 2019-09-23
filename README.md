@@ -1,7 +1,7 @@
 ## Redux Github Repo Search
 
 Search Github Repositories by keyword.
-Utilized Redux, Axios
+Utilized Redux, Axios.
 
 ![](reduxapp.PNG)
 
