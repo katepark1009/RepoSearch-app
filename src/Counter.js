@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import constants from './constants';
 
 function Counter(props){
   console.log('store: ', props)
@@ -22,6 +23,9 @@ function Counter(props){
             </ul>
           </form>
       </div>
+      <footer>
+        Total Count: {props.listCount}
+      </footer>
     </div>
   )
 }
@@ -31,7 +35,8 @@ function mapStateToProps(state){
     count: state.count,
     inputVal: state.inputVal,
     inputText: state.inputText,
-    items: state.items
+    items: state.items,
+    listCount: state.items.length
   }
 }
 
@@ -39,29 +44,29 @@ function mapDispatchToProps(dispatch){
   console.log('mapDispatchToProps')
   return {
     onIncrementClick: () => {
-      const action = {type: 'INCREMENT'};
+      const action = {type: constants.INCREMENT};
       dispatch(action);
     },
     onDecrementClick: () => {
-      const action = {type: 'DECREMENT'};
+      const action = {type: constants.DECREMENT};
       dispatch(action);
     },
     onInputChange: (evt) => {
       console.log(evt.target.value)
-      const action = { type: 'INPUT_CHANGED', text: evt.target.value}
+      const action = { type: constants.INPUT_CHANGED, text: evt.target.value}
       dispatch(action);
     },
     onInputTextChange: (evt) => {
-      const action = { type: 'LIST_ITEM', text: evt.target.value}
+      const action = { type: constants.LIST_ITEM, text: evt.target.value}
       dispatch(action);
     },
     onSubmit: (evt) => {
       evt.preventDefault(); //! 없으면 페이지가 스스로 새로고침됨
-      const action = { type: 'ADD_ITEM'};
+      const action = { type: constants.ADD_ITEM};
       dispatch(action);
     },
     itemDelete: (index) => {
-      const action = { type: 'DELETE_ITEM', index: index};
+      const action = { type: constants.DELETE_ITEM, index: index};
       dispatch(action);
     }
   }

@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import constants from '../constants';
 
 const initialState = {
   count: 3,
@@ -10,33 +11,33 @@ const initialState = {
 function reducer(state = initialState, action){
   console.log('reducer', action, 'state: ', state)
   switch(action.type){
-    case 'INCREMENT': 
+    case constants.INCREMENT: 
       return {
         ...state,
         count: state.count +1
       }
-    case 'DECREMENT': 
+    case constants.DECREMENT: 
       return {
         ...state,
         count: state.count -1
     }
-    case 'INPUT_CHANGED': 
+    case constants.INPUT_CHANGED: 
       return {
         ...state,
         inputVal: action.text
     }
-    case 'LIST_ITEM':
+    case constants.LIST_ITEM:
       return {
         ...state,
         inputText: action.text
     }
-    case 'ADD_ITEM':
+    case constants.ADD_ITEM:
       return {
         ...state,
         items: state.items.concat(state.inputText),
         inputText: ''
       }
-    case 'DELETE_ITEM':
+    case constants.DELETE_ITEM:
       const copy = state.items.slice();
       copy.splice(action.index, 1)
       return {
