@@ -2,10 +2,12 @@ import { createStore } from 'redux';
 import constants from '../constants';
 
 const initialState = {
-  count: 3,
+  count: 0,
   inputVal:'',
   inputText: '',
-  items: []
+  items: [],
+  repos: [],
+  searchInputVal: ''
 }
 
 function reducer(state = initialState, action){
@@ -43,6 +45,16 @@ function reducer(state = initialState, action){
       return {
         ...state,
         items: copy
+      }
+    case constants.SEARCH_INPUT:
+      return {
+        ...state,
+        searchInputVal: action.text
+      }
+    case constants.GET_REPO:
+      return {
+        ...state,
+        repos: action.repos
       }
     default:
       return state;

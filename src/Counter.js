@@ -1,11 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import constants from './constants';
+import Api from './Api'
 
 function Counter(props){
   console.log('store: ', props)
   return(
     <div>
+      <h1>Repo Search</h1>
+      <form onSubmit={(e) => props.onSearchSubmit(e, props.searchInputVal)}>
+        <input value={props.searchInputVal} onChange={props.searchInputChange}/>
+      </form>
+      <ul>
+        {props.repos && props.repos.map( repo => {
+          return <li key={repo.id}><a href={repo.html_url}>{repo.name}</a></li>
+        })}
+      </ul>
       <h1>Counter</h1>
       <p>Count: {props.count || 0}</p>
       <button onClick={props.onIncrementClick}>increment</button><br/>
@@ -17,7 +27,7 @@ function Counter(props){
         <form onSubmit={props.onSubmit}>
           <input value={props.inputText} onChange={props.onInputTextChange}/>
             <ul>
-              {props.items.map( (item, index)=> {
+              {props.items && props.items.map( (item, index)=> {
                 return <li key={index} onClick={()=>props.itemDelete(index)}>{item}</li>
               })}
             </ul>
@@ -36,7 +46,9 @@ function mapStateToProps(state){
     inputVal: state.inputVal,
     inputText: state.inputText,
     items: state.items,
-    listCount: state.items.length
+    listCount: state.items.length,
+    searchInputVal: state.searchInputVal,
+    repos: state.repos
   }
 }
 
@@ -68,6 +80,15 @@ function mapDispatchToProps(dispatch){
     itemDelete: (index) => {
       const action = { type: constants.DELETE_ITEM, index: index};
       dispatch(action);
+    },
+    searchInputChange: (evt) => {
+      const action = { type: constants.SEARCH_INPUT, text: evt.target.value};
+      dispatch(action);
+    },
+    onSearchSubmit: (evt, query) => {
+      evt.preventDefault();
+      // Api.getRepos(dispatch, query);
+      Api.getReposAxios(dispatch, query);  
     }
   }
 }
