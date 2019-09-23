@@ -2,7 +2,9 @@ import { createStore } from 'redux';
 
 const initialState = {
   count: 3,
-  inputVal:''
+  inputVal:'',
+  inputText: '',
+  items: []
 }
 
 function reducer(state = initialState, action){
@@ -23,6 +25,18 @@ function reducer(state = initialState, action){
         ...state,
         inputVal: action.text
     }
+    case 'LIST_ITEM':
+      return {
+        ...state,
+        inputText: action.text
+    }
+    case 'ADD_ITEM':
+      return {
+        ...state,
+        items: state.items.concat(state.inputText),
+        inputText: ''
+      }
+
     default:
       return state;
   }
