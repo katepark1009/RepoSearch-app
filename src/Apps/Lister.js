@@ -5,6 +5,10 @@ import styled from '@emotion/styled';
 
 const StyleList = styled.li`
   list-style-type: none;
+  cursor: pointer;
+  &:active, &:hover {
+    color: #ED4C67;
+  }
 `;
 
 
@@ -12,11 +16,12 @@ function Lister(props){
   return(
   <>
     <div>
-        <h1>Lister</h1>
+        <h1>To-do List</h1>
         <p>What do you want to remember?</p>
+        <p>(Click to remove the item.)</p>
         <form onSubmit={props.onSubmit}>
           <input value={props.inputText} onChange={props.onInputTextChange}/>
-          <button>Submit</button>
+          <button>ADD</button>
             <ul>
               {props.items && props.items.map( (item, index)=> {
                 return <StyleList key={index} onClick={()=>props.itemDelete(index)}>{item}</StyleList>

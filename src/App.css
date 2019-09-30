@@ -24,4 +24,15 @@
 nav {
   background-color: black;
   color: white;
+  height: 40px;
+  padding-top: 10px;
+}
+
+button {
+  text-align: center;
+  align-items: flex-start;
+  cursor: pointer;
+  background-color: #282c34;
+  color: white;
+  padding: 3px 6px;
 }

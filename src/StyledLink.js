@@ -7,12 +7,12 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     background-color: black;
     color: white;
-    margin: 0 10px;
+    margin: 0 15px;
     text-align: center;
     &:active, &:hover {
       color: pink;
     }
-    font-size: 1rem;
+    font-size: 1em;
     &:focus, &:visited, &:link {
       text-decoration: none;
     }

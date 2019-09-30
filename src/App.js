@@ -16,8 +16,8 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <nav>
-            <StyledLink to="/">Home</StyledLink>
-            <StyledLink to="/lister">Lister</StyledLink>
+            <StyledLink to="/">Repo Search</StyledLink>
+            <StyledLink to="/lister">Todo List</StyledLink>
             <StyledLink to="/counter1">Counter1</StyledLink>
             <StyledLink to="/counter2">Counter2</StyledLink>
           </nav>
