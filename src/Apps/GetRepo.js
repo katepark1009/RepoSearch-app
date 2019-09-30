@@ -56,6 +56,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   margin-top: 30px;
   justify-content: center;
+  margin: 30px 50px;
 `;
 
 const InfoText = styled.p`
@@ -64,8 +65,7 @@ const InfoText = styled.p`
   text-align: left;
   font-size: .8rem;
   color: gray;
-  margin: 15px auto 8px 30px;
-  width: 150%;
+  margin: 5px auto 5px 90px;
 `;
 
 const Link = styled.a`
@@ -105,7 +105,10 @@ function GetRepo(props){
                       {repo.name}
                     </RepoTitle> - {repo.owner.login}
                   <InfoText>
-                    {Star} Stars: {repo.stargazers_count}, {Fork} Forked:   {repo.forks}
+                    {Star} Stars: {repo.stargazers_count}
+                  </InfoText>
+                  <InfoText>
+                    {Fork} Forked: {repo.forks} 
                   </InfoText>
                   </Link>
                 </Content>
