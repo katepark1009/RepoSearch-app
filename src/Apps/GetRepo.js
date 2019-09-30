@@ -88,7 +88,7 @@ function GetRepo(props){
     <div>
       <ResizedImg src="https://orcid.org/sites/default/files/ckfinder/userfiles/images/github-logo.jpg" alt="" />
       <h1>Github Repo Search</h1>
-      <p>Please type a keyword!</p>
+      <p>Please type a keyword 👇🏻</p>
       <form onSubmit={(e) => props.onSearchSubmit(e, props.searchInputVal)}>
         <input value={props.searchInputVal} onChange={props.searchInputChange}/>
         <button>Search</button>
